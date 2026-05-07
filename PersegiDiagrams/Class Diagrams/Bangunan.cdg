@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="BangunRuang">
+  <ClassDiagramComponents>
+    <Class name="BangunDatar" package="" visibility="public" isAbstract="true" xPosition="344.0" yPosition="144.0">
+      <Fields>
+        <Field name="luas" type="double" visibility="protected"/>
+        <Field name="keliling" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="BangunDatar" returnType="constructor" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Persegi" package="" visibility="public" xPosition="659.0" yPosition="124.0">
+      <Fields>
+        <Field name="sisi" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Persegi" returnType="constructor" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="setSisi" returnType="void" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="getSisi" returnType="double" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+        </Method>
+        <Method name="hitungKeliling" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BujurSangkar" package="" visibility="public" xPosition="1010.0" yPosition="103.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="BujurSangkar" returnType="constructor" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="hitungLuas" returnType="double" visibility="public"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LimasPersegi" package="" visibility="public" xPosition="992.0" yPosition="375.0">
+      <Fields>
+        <Field name="tinggi" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="LimasPersegi" returnType="constructor" visibility="public">
+          <Argument type="double" name="sisi"/>
+          <Argument type="double" name="tinggi"/>
+        </Method>
+        <Method name="setTinngi" returnType="void" visibility="public">
+          <Argument type="double" name="tinggi"/>
+        </Method>
+        <Method name="getTinggi" returnType="double" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="BendaGeometri" package="" visibility="public" xPosition="51.0" yPosition="186.0">
+      <Methods>
+        <Method name="hitungLuas" returnType="double" visibility="public"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="LimasPersegi" target="Persegi"/>
+    <IsRelation name="is" source="BujurSangkar" target="Persegi"/>
+    <IsRelation name="is" source="Persegi" target="BangunDatar"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="BangunDatar" target="BendaGeometri"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
