@@ -1,21 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package mainapp;
 
-/**
- *
- * @author HP
- */
+import java.util.*;
+
 public class MainApp {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Hello World");
+
+        List<BendaGeometri> shapes = new ArrayList<>(); // Polymorphism
+        Random rand = new Random();
+
+        // generate random object
+        for (int i = 0; i < 50; i++) {
+            if (i % 2 == 0) {
+                shapes.add(new BujurSangkar(rand.nextInt(10) + 1));
+            } else {
+                shapes.add(new LimasPersegi(rand.nextInt(10) + 1, rand.nextInt(5) + 1));
+            }
+        }
+
+        System.out.println("=== SINGLE THREAD ===");
+        ThreadExecutorSingle.processShapes(shapes);
+
+        System.out.println("\n=== MULTI THREAD ===");
+        ThreadExecutor.processShapes(shapes);
     }
-    
 }
