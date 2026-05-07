@@ -6,28 +6,32 @@ import mainapp.threading.ThreadExecutor;
 import mainapp.threading.ThreadExecutorSingle;
 import mainapp.projek_pbo.BendaGeometri;
 import java.util.*;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import ui.HomePanel; // Import your HomePanel class
 
 public class MainApp {
-
     public static void main(String[] args) {
+        // Always run Swing code on the Event Dispatch Thread (EDT)
+        SwingUtilities.invokeLater(() -> {
+            createAndShowGUI();
+        });
+    }
 
-        List<BendaGeometri> shapes = new ArrayList<>(); // Polymorphism
-        Random rand = new Random();
+    private static void createAndShowGUI() {
+        // 1. Create the window
+        JFrame frame = new JFrame("Geometry Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // generate random object
-        for (int i = 0; i < 50; i++) {
-            if (i % 2 == 0) {
-                shapes.add(new BujurSangkar(rand.nextInt(10) + 1, rand.nextInt(10) + 1));
-            } else {
-                shapes.add(new LimasPersegi(rand.nextInt(10) + 1, rand.nextInt(5) + 1));
-            }
-        }
+        // 2. Add your HomePanel to the frame
+        // HomePanel is a JPanel, so it fits right in
+        HomePanel mainContent = new HomePanel();
+        frame.add(mainContent);
 
-        System.out.println("=== SINGLE THREAD ===");
-        ThreadExecutorSingle.processShapes(shapes);
-
-        System.out.println("\n=== MULTI THREAD ===");
-        ThreadExecutor.processShapes(shapes);
+        // 3. Size and display
+        frame.pack(); 
+        frame.setLocationRelativeTo(null); // Centers the window on screen
+        frame.setVisible(true);
     }
 }
 
