@@ -1,9 +1,11 @@
-package mainapp;
+package mainapp.threading;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import mainapp.projek_pbo.BangunDatar;
+import mainapp.projek_pbo.BendaGeometri;
 
 public class ThreadExecutor {
 

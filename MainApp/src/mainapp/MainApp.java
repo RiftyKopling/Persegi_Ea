@@ -1,5 +1,10 @@
 package mainapp;
 
+import mainapp.projek_pbo.LimasPersegi;
+import mainapp.projek_pbo.BujurSangkar;
+import mainapp.threading.ThreadExecutor;
+import mainapp.threading.ThreadExecutorSingle;
+import mainapp.projek_pbo.BendaGeometri;
 import java.util.*;
 
 public class MainApp {
@@ -12,7 +17,7 @@ public class MainApp {
         // generate random object
         for (int i = 0; i < 50; i++) {
             if (i % 2 == 0) {
-                shapes.add(new BujurSangkar(rand.nextInt(10) + 1));
+                shapes.add(new BujurSangkar(rand.nextInt(10) + 1, rand.nextInt(10) + 1));
             } else {
                 shapes.add(new LimasPersegi(rand.nextInt(10) + 1, rand.nextInt(5) + 1));
             }

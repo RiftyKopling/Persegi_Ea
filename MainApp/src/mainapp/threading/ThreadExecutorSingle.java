@@ -1,6 +1,8 @@
-package mainapp;
+package mainapp.threading;
 
 import java.util.List;
+import mainapp.projek_pbo.BangunDatar;
+import mainapp.projek_pbo.BendaGeometri;
 
 public class ThreadExecutorSingle {
 
