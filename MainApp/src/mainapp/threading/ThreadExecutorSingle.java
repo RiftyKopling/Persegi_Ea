@@ -17,13 +17,18 @@ public class ThreadExecutorSingle {
     }
 
     private static String processShape(BendaGeometri shape, int index) {
-        String threadName = Thread.currentThread().getName();
-        BangunDatar bd = (BangunDatar) shape;
+        try{
+            String threadName = Thread.currentThread().getName();
+            BangunDatar bd = (BangunDatar) shape;
 
-        return String.format("%s | #%d | [%s] -> Luas: %.2f%n",
-                threadName,
-                index,
-                shape.getClass().getSimpleName(),
-                bd.hitungLuas());
+            return String.format("%s | #%d | [%s] -> Luas: %.2f%n",
+                    threadName,
+                    index,
+                    shape.getClass().getSimpleName(),
+                    bd.hitungLuas());
+        }
+        catch(Exception e){
+            return "Error: " + e.getMessage();
+        }
     }
 }

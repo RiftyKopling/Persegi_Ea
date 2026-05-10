@@ -21,9 +21,10 @@ public class MultiThreadPage extends JPanel {
         setLayout(null);
         setPreferredSize(new Dimension(910, 500));
         
-        button.setBounds(20, 20, 250, 40);
+        button.setBounds(20, 20, 250, 45);
         add(button);
         
+        textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setBounds(20, 80, 860, 380);
         add(scrollPane);
@@ -33,7 +34,12 @@ public class MultiThreadPage extends JPanel {
         });
     }
     
+    private void updateText(String text) {
+        SwingUtilities.invokeLater(() -> textArea.append(text));
+    }
+    
     public void handleMultiThread(){
+        textArea.setText("");
         List<BendaGeometri> shapes = new ArrayList<>(); // Polymorphism
         Random rand = new Random();
 
@@ -47,24 +53,15 @@ public class MultiThreadPage extends JPanel {
         }
 
         new Thread(() -> {
-            textArea.append("=== SINGLE THREAD ===");    
+            SwingUtilities.invokeLater(() -> textArea.append("=== SINGLE THREAD ===\n"));
             List<String> singleOutput = ThreadExecutorSingle.processShapes(shapes);
             
-            singleOutput.forEach(item -> {
-                this.textArea.append(item);
-            });
-            textArea.append("=== EXECUTION FINISHED ===\n");
-        }).start();
-                
-        new Thread(() -> {
-            textArea.append("\n=== MULTI THREAD ===");   
+            singleOutput.forEach(this::updateText);
+            
+            SwingUtilities.invokeLater(() -> textArea.append("\n=== MULTI THREAD ===\n"));
             List<String> multiOutput = ThreadExecutor.processShapes(shapes);
             
-            multiOutput.forEach(item -> {
-                this.textArea.append(item);
-            });
-            
-            textArea.append("=== EXECUTION FINISHED ===\n");
+            multiOutput.forEach(this::updateText);
         }).start();
     }
 }

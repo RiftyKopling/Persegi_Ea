@@ -59,9 +59,8 @@ public class HomePanel extends JPanel {
         JTabbedPane tabbedPane = new JTabbedPane();
         ImageIcon icon = null;
         
-        JComponent panel1 = makeTextPanel("Panel #1");
-        tabbedPane.addTab("Tab 1", icon, panel1,
-                "Does nothing");
+        JComponent panel1 = new PersegiPage();
+        tabbedPane.addTab("Tab 1", icon, panel1, "Does nothing");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         
         JComponent panel2 = makeTextPanel("Panel #2");

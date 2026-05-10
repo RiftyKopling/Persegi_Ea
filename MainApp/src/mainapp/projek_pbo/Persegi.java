@@ -9,6 +9,13 @@ public class Persegi extends BangunDatar {
     protected double luas;
     protected double keliling;
 
+    // Overloading Implementation
+    public Persegi() {
+        setSisi(0);
+        this.luas = 0;
+        this.keliling = 0;
+    }
+
     public Persegi(double sisi) {
         setSisi(sisi);
         this.luas = hitungLuas();
@@ -16,7 +23,7 @@ public class Persegi extends BangunDatar {
     }
 
     public void setSisi(double sisi) {
-        if (sisi <= 0) {
+        if (sisi < 0) {
             throw new IllegalArgumentException("Sisi harus > 0");
         }
         this.sisi = sisi;
