@@ -8,11 +8,10 @@ import mainapp.projek_pbo.BendaGeometri;
 import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import mainapp.ui.HomePanel; // Import your HomePanel class
+import mainapp.ui.HomePanel;
 
 public class MainApp {
     public static void main(String[] args) {
-        // Always run Swing code on the Event Dispatch Thread (EDT)
         SwingUtilities.invokeLater(() -> {
             createAndShowGUI();
         });

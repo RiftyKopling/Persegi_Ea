@@ -1,5 +1,6 @@
 package mainapp.threading;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -9,19 +10,24 @@ import mainapp.projek_pbo.BendaGeometri;
 
 public class ThreadExecutor {
 
-    public static void processShapes(List<BendaGeometri> shapes) {
+    public static List processShapes(List<BendaGeometri> shapes) {
+        ArrayList<String> output = new ArrayList<>();
 
         ExecutorService executor = Executors.newFixedThreadPool(4);
         AtomicInteger counter = new AtomicInteger(1);
 
         for (BendaGeometri shape : shapes) {
-            executor.submit(() -> processShape(shape, counter.getAndIncrement()));
+            executor.submit(() -> {
+                output.add(processShape(shape, counter.getAndIncrement()));
+            });
         }
 
         executor.shutdown();
+        
+        return output;
     }
 
-    private static void processShape(BendaGeometri shape, int index) {
+    private static String processShape(BendaGeometri shape, int index) {
         String threadName = Thread.currentThread().getName();
 
         try {
@@ -29,14 +35,14 @@ public class ThreadExecutor {
 
             BangunDatar bd = (BangunDatar) shape;
 
-            System.out.printf("%s | #%d | [%s] -> Luas: %.2f%n",
+            return String.format("%s | #%d | [%s] -> Luas: %.2f%n",
                     threadName,
                     index,
                     shape.getClass().getSimpleName(),
                     bd.hitungLuas());
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            return String.format("Error: " + e.getMessage());
         }
     }
 }
