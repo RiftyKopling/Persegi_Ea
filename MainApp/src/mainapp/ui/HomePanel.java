@@ -29,12 +29,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package ui;
+package mainapp.ui;
 
-/*
- * TabbedPaneDemo.java requires one additional file:
- *   images/middle.gif.
+/**
+ * @author morxidia
+ * as state above this page mainly copy from java oracle documentation 
+ * about multi page java swing UI, please read the documentation for further
+ * information
  */
+
 
 import javax.swing.JTabbedPane;
 import javax.swing.ImageIcon;
@@ -71,11 +74,13 @@ public class HomePanel extends JPanel {
                 "Still does nothing");
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
         
-        JComponent panel4 = makeTextPanel(
-                "Panel #4 (has a preferred size of 410 x 50).");
-        panel4.setPreferredSize(new Dimension(910, 50));
-        tabbedPane.addTab("Tab 4", icon, panel4,
-                "Does nothing at all");
+        /*
+        * panel 4 to show the original output from the mainapp.threading
+        * more information can be see in the default branch (06-05-26)
+        */
+        
+        JComponent panel4 = new MultiThreadPage();
+        tabbedPane.addTab("Multi Thread Viewpage", icon, panel4, "View Data");
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
         
         //Add the tabbed pane to this panel.

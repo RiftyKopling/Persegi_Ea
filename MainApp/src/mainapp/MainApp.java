@@ -8,7 +8,7 @@ import mainapp.projek_pbo.BendaGeometri;
 import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import ui.HomePanel; // Import your HomePanel class
+import mainapp.ui.HomePanel; // Import your HomePanel class
 
 public class MainApp {
     public static void main(String[] args) {
