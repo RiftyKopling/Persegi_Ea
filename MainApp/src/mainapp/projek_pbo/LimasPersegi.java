@@ -5,10 +5,16 @@ import java.util.Scanner;
 
 public class LimasPersegi extends Persegi {
 
+
     private double tinggi;
     private double volume;
     private double luasPermukaan;
 
+    public LimasPersegi(){
+        super(0);
+        this.tinggi = 0;
+    }
+    
     public LimasPersegi(double sisi, double tinggi) {
         super(sisi);
         this.tinggi = tinggi;
@@ -93,6 +99,10 @@ public class LimasPersegi extends Persegi {
                 System.out.println("Input harus Y atau N");
             }
         }
+    }
+    
+    public void setTinggi(double tinggi) {
+        this.tinggi = tinggi;
     }
 
     public double getTinggi() {

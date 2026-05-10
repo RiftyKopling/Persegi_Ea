@@ -60,17 +60,15 @@ public class HomePanel extends JPanel {
         ImageIcon icon = null;
         
         JComponent panel1 = new PersegiPage();
-        tabbedPane.addTab("Tab 1", icon, panel1, "Does nothing");
+        tabbedPane.addTab("Persegi", icon, panel1);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         
-        JComponent panel2 = makeTextPanel("Panel #2");
-        tabbedPane.addTab("Tab 2", icon, panel2,
-                "Does twice as much nothing");
+        JComponent panel2 = new LimasPage();
+        tabbedPane.addTab("Limas", icon, panel2);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
         
-        JComponent panel3 = makeTextPanel("Panel #3");
-        tabbedPane.addTab("Tab 3", icon, panel3,
-                "Still does nothing");
+        JComponent panel3 = new BujurSangkarPage();
+        tabbedPane.addTab("Bujur Sangkar", icon, panel3);
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
         
         /*

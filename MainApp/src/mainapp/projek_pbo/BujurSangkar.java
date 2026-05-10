@@ -9,6 +9,13 @@ public class BujurSangkar extends Persegi {
     private double volume;
     private double luasPermukaan;
 
+    public BujurSangkar() {
+        super(0);
+        this.tinggi = 0;
+        this.volume = 0;
+        this.luasPermukaan = 0;
+    }
+    
     public BujurSangkar(double sisi, double tinggi) {
         super(sisi);
         this.tinggi = tinggi;
@@ -98,6 +105,10 @@ public class BujurSangkar extends Persegi {
                 System.out.println("Jawaban hanya boleh Y atau N");
             }
         }
+    }
+    
+    public void setTinggi(double tinggi) {
+        this.tinggi = tinggi;
     }
 
     public double getTinggi() {

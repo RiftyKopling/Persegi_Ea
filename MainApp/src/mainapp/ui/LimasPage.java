@@ -3,18 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mainapp.ui;
-import javax.swing.*;
-import java.awt.*;
-import mainapp.projek_pbo.*;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import mainapp.projek_pbo.LimasPersegi;
+
 /**
  *
  * @author morxidia
  */
-public class PersegiPage extends JPanel {
-    private Persegi geometryObject= new Persegi();
+public class LimasPage extends JPanel{
+    private LimasPersegi geometryObject= new LimasPersegi();
     
     // input text object
     private JTextField inputSide = new JTextField(10);
+    private JTextField inputHeight = new JTextField(10);
     private JButton btnCalculate = new JButton("Calculate");
     
     // output text object
@@ -24,13 +38,16 @@ public class PersegiPage extends JPanel {
     // Error Textarea;
     private JTextArea errorTextArea = new JTextArea(5, 20);
 
-    public PersegiPage() {
+    public LimasPage() {
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(410, 300));
         
         JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        inputPanel.add(new JLabel("Side:"));
+        inputPanel.add(new JLabel("Base edge:"));
         inputPanel.add(inputSide);
+        inputPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        inputPanel.add(new JLabel("Height:"));
+        inputPanel.add(inputHeight);
         
         // to set the spacer and "calculate" button 
         inputPanel.add(Box.createRigidArea(new Dimension(10, 0)));
@@ -58,10 +75,10 @@ public class PersegiPage extends JPanel {
         // adding result section as flow layout rather than box layout
         JPanel resultRow = new JPanel();
         resultRow.setLayout(new FlowLayout(FlowLayout.CENTER));
-        resultRow.add(new JLabel("Area: "));
+        resultRow.add(new JLabel("Volume: "));
         resultRow.add(outputArea);
         resultRow.add(Box.createRigidArea(new Dimension(10, 0)));
-        resultRow.add(new JLabel("Perimeter: "));
+        resultRow.add(new JLabel("Surface Area: "));
         resultRow.add(outputPerimeter);
 
         resultPanel.add(resultRow);
@@ -79,9 +96,9 @@ public class PersegiPage extends JPanel {
             outputArea.setText("");
             outputPerimeter.setText("");
             try{
-                this.handleInput(inputSide.getText());
-                outputArea.setText(String.valueOf(geometryObject.hitungLuas()) + " cm");
-                outputPerimeter.setText(String.valueOf(geometryObject.hitungKeliling()) + " cm");
+                this.handleInput(this.inputSide.getText(), this.inputHeight.getText());
+                outputArea.setText(this.formatValue(geometryObject.hitungVolume()));
+                outputPerimeter.setText(this.formatValue(geometryObject.hitungLuasPermukaan()));
             }
             // Handle error for parse error String to Double
             catch(NumberFormatException ex){
@@ -94,8 +111,14 @@ public class PersegiPage extends JPanel {
         });
     }
     
-    private void handleInput(String input){
-        double val = Double.parseDouble(input);
-        geometryObject.setSisi(val);
+    private String formatValue(Double input){
+        return String.format("%.2f", input);
+    }
+    
+    private void handleInput(String side, String height){
+        double sideVal = Double.parseDouble(side);
+        double heightVal = Double.parseDouble(height);
+        geometryObject.setSisi(sideVal);
+        geometryObject.setTinggi(heightVal);
     }
 }
