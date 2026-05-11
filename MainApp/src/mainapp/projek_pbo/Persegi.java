@@ -4,22 +4,19 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Persegi extends BangunDatar {
-
-    protected double sisi;
-    protected double luas;
-    protected double keliling;
+    // Luas and Keliling shouldn't be an variable in object sudden change
+    // on sisi might broke the other variable, so is dependant to sisi
+    // all the variable inside shouldn't be accessible by other class
+    // only accessible by setter and getter
+    private double sisi;
 
     // Overloading Implementation
     public Persegi() {
         setSisi(0);
-        this.luas = 0;
-        this.keliling = 0;
     }
 
     public Persegi(double sisi) {
         setSisi(sisi);
-        this.luas = hitungLuas();
-        this.keliling = hitungKeliling();
     }
 
     public void setSisi(double sisi) {
@@ -35,14 +32,12 @@ public class Persegi extends BangunDatar {
 
     @Override
     public double hitungLuas() {
-        luas = sisi * sisi;
-        return luas;
+        return this.sisi * this.sisi;
     }
 
     @Override
     public double hitungKeliling() {
-        keliling = 4 * sisi;
-        return keliling;
+        return 4 * this.sisi;
     }
 
     public double hitungLuas(double sisiBaru) {
@@ -53,62 +48,35 @@ public class Persegi extends BangunDatar {
         return 4 * sisiBaru;
     }
 
-    public void prosesInputDanValidasi() {
-
-        Scanner inp = new Scanner(System.in);
-
-        while (true) {
-            System.out.print("\nApakah ingin mengubah nilai sisi persegi? (Y/N): ");
-            String jawab = inp.nextLine();
-
-            if (jawab.equalsIgnoreCase("Y")) {
-
-                while (true) {
-                    try {
-                        System.out.print("Masukkan sisi baru: ");
-                        double newSisi = inp.nextDouble();
-                        inp.nextLine();
-
-                        if (newSisi <= 0) {
-                            System.out.println("Sisi harus lebih dari 0");
-                            continue;
-                        }
-
-                        sisi = newSisi;
-                        luas = hitungLuas(newSisi);
-                        keliling = hitungKeliling(newSisi);
-
-                        System.out.printf("\nLuas Persegi: %.2f\n", luas);
-                        System.out.printf("Keliling Persegi: %.2f\n", keliling);
-
-                        break;
-
-                    } catch (InputMismatchException e) {
-                        System.out.println("Input harus angka!");
-                        inp.nextLine();
-                    }
-                }
-
-                break;
-
-            } else if (jawab.equalsIgnoreCase("N")) {
-
-                luas = hitungLuas();
-                keliling = hitungKeliling();
-
-                break;
-
-            } else {
-                System.out.println("Jawaban hanya boleh Y atau N");
-            }
-        }
+    // Input Output shouldn't be handle by geometri class and should handle by
+    // other class that declare the class object
+    
+    @Override
+    public String getNamaBangun() {
+        return "Persegi";
     }
 
-    public double getLuas() {
-        return luas;
+    @Override
+    public String info() {
+        return String.format(
+            "Nama Bangun      : %s\n" +
+            "Luas             : %.2f cm³\n" +
+            "Keliling         : %.2f cm²\n" +
+            this.getNamaBangun(),
+            this.hitungLuas(),
+            this.hitungKeliling()
+        );
     }
-
-    public double getKeliling() {
-        return keliling;
+        
+    @Override
+    public String infoSingleLine() {
+        return String.format(
+            "Nama Bangun: %s, " +
+            "Luas: %.2f cm³, " +
+            "Keliling: %.2f cm², " +
+            this.getNamaBangun(),
+            this.hitungLuas(),
+            this.hitungKeliling()
+        );
     }
 }

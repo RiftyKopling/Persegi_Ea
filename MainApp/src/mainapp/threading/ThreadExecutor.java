@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-import mainapp.projek_pbo.BangunDatar;
+import mainapp.projek_pbo.BangunRuang;
 import mainapp.projek_pbo.BendaGeometri;
 
 public class ThreadExecutor {
@@ -43,13 +43,13 @@ public class ThreadExecutor {
         try {
             Thread.sleep((int)(Math.random()*100)); // bikin acak
 
-            BangunDatar bd = (BangunDatar) shape;
+            BangunRuang bd = (BangunRuang) shape;
 
-            return String.format("%s | #%d | [%s] -> Luas: %.2f%n",
+            return String.format("%s | #%d | [%s] -> %s\n",
                     threadName,
                     index,
                     shape.getClass().getSimpleName(),
-                    bd.hitungLuas());
+                    bd.infoSingleLine());
 
         } catch (Exception e) {
             return String.format("Error: " + e.getMessage());
