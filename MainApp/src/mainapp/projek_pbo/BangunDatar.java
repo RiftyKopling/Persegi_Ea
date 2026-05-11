@@ -1,4 +1,4 @@
-package mainapp;
+package mainapp.projek_pbo;
 
 public abstract class BangunDatar implements BendaGeometri { // Abstraction
     protected double luas; // Enkapsulation
