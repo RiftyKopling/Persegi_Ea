@@ -2,7 +2,7 @@ package mainapp.threading;
 
 import java.util.List;
 import java.util.ArrayList;
-import mainapp.projek_pbo.BangunDatar;
+import mainapp.projek_pbo.BangunRuang;
 import mainapp.projek_pbo.BendaGeometri;
 
 public class ThreadExecutorSingle {
@@ -19,13 +19,13 @@ public class ThreadExecutorSingle {
     private static String processShape(BendaGeometri shape, int index) {
         try{
             String threadName = Thread.currentThread().getName();
-            BangunDatar bd = (BangunDatar) shape;
+            BangunRuang bd = (BangunRuang) shape;
 
-            return String.format("%s | #%d | [%s] -> Luas: %.2f%n",
+            return String.format("%s | #%d | [%s] -> %s\n",
                     threadName,
                     index,
                     shape.getClass().getSimpleName(),
-                    bd.hitungLuas());
+                    bd.infoSingleLine());
         }
         catch(Exception e){
             return "Error: " + e.getMessage();

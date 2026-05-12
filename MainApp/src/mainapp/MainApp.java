@@ -1,11 +1,5 @@
 package mainapp;
 
-import mainapp.projek_pbo.LimasPersegi;
-import mainapp.projek_pbo.BujurSangkar;
-import mainapp.threading.ThreadExecutor;
-import mainapp.threading.ThreadExecutorSingle;
-import mainapp.projek_pbo.BendaGeometri;
-import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import mainapp.ui.HomePanel;

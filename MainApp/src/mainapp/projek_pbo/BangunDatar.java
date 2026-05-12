@@ -1,14 +1,10 @@
 package mainapp.projek_pbo;
 
-public abstract class BangunDatar implements BendaGeometri { // Abstraction
-    protected double luas; // Enkapsulation
-    protected double keliling;
-
-    public BangunDatar() {}
-
-    @Override
+/**
+ * refactor by : @morxidia
+ * 11-5-26
+ */
+public abstract class BangunDatar implements BendaGeometri{ // Abstraction
     public abstract double hitungLuas();
-
-    @Override
     public abstract double hitungKeliling();
 }
