@@ -1,67 +1,153 @@
 package mainapp.ui;
+
 /**
  * @author morxidia
- * this page show the main default branch output as text in java swing UI
+ * this page show single thread vs multi thread output
  */
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+
 import mainapp.threading.*;
 import mainapp.projek_pbo.*;
 
 public class MultiThreadPage extends JPanel {
-    private JTextArea textArea = new JTextArea(5, 20);
-    private JButton button = new JButton("Show MultiThread Excetution");
-    
+
+    private JTextArea singleArea = new JTextArea();
+    private JTextArea multiArea = new JTextArea();
+
+    private JLabel singleRuntime = new JLabel("Runtime Single Thread : -");
+    private JLabel multiRuntime = new JLabel("Runtime Multi Thread : -");
+
+    private JButton button = new JButton("Show Multi Thread Executor");
+
     public MultiThreadPage() {
-        setLayout(null);
-        setPreferredSize(new Dimension(910, 500));
-        
-        button.setBounds(20, 20, 250, 45);
-        add(button);
-        
-        textArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setBounds(20, 80, 860, 380);
-        add(scrollPane);
-        
-        button.addActionListener(e -> {
-            this.handleMultiThread();
-        });
+
+        setLayout(new BorderLayout());
+
+        // ===== TOP PANEL =====
+        JPanel topPanel = new JPanel();
+        topPanel.add(button);
+
+        add(topPanel, BorderLayout.NORTH);
+
+        // ===== TEXT AREA =====
+        singleArea.setEditable(false);
+        multiArea.setEditable(false);
+
+        JScrollPane singleScroll = new JScrollPane(singleArea);
+        JScrollPane multiScroll = new JScrollPane(multiArea);
+
+        JPanel centerPanel = new JPanel(new GridLayout(1, 2, 10, 10));
+
+        // LEFT PANEL
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        leftPanel.add(new JLabel("Single Thread", SwingConstants.CENTER),
+                BorderLayout.NORTH);
+        leftPanel.add(singleScroll, BorderLayout.CENTER);
+
+        // RIGHT PANEL
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        rightPanel.add(new JLabel("Multi Thread", SwingConstants.CENTER),
+                BorderLayout.NORTH);
+        rightPanel.add(multiScroll, BorderLayout.CENTER);
+
+        centerPanel.add(leftPanel);
+        centerPanel.add(rightPanel);
+
+        add(centerPanel, BorderLayout.CENTER);
+
+        // ===== BOTTOM PANEL =====
+        JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
+
+        bottomPanel.add(singleRuntime);
+        bottomPanel.add(multiRuntime);
+
+        add(bottomPanel, BorderLayout.SOUTH);
+
+        // ===== BUTTON ACTION =====
+        button.addActionListener(e -> handleMultiThread());
     }
-    
-    private void updateText(String text) {
-        SwingUtilities.invokeLater(() -> textArea.append(text));
-    }
-    
-    public void handleMultiThread(){
-        textArea.setText("");
-        List<BendaGeometri> shapes = new ArrayList<>(); // Polymorphism
+
+    public void handleMultiThread() {
+
+        singleArea.setText("");
+        multiArea.setText("");
+
+        List<BendaGeometri> shapes = new ArrayList<>();
         Random rand = new Random();
 
         // generate random object
         for (int i = 0; i < 50; i++) {
+
             if (i % 2 == 0) {
-                shapes.add(new BujurSangkar(rand.nextInt(10) + 1, rand.nextInt(10) + 1));
+                shapes.add(
+                    new BujurSangkar(
+                        rand.nextInt(10) + 1,
+                        rand.nextInt(10) + 1
+                    )
+                );
             } else {
-                shapes.add(new LimasPersegi(rand.nextInt(10) + 1, rand.nextInt(5) + 1));
+                shapes.add(
+                    new LimasPersegi(
+                        rand.nextInt(10) + 1,
+                        rand.nextInt(5) + 1
+                    )
+                );
             }
         }
 
         new Thread(() -> {
-            SwingUtilities.invokeLater(() -> textArea.append("=== SINGLE THREAD ===\n"));
-            List<String> singleOutput = ThreadExecutorSingle.processShapes(shapes);
-            
-            singleOutput.forEach(this::updateText);
-            
-            SwingUtilities.invokeLater(() -> textArea.append("\n=== MULTI THREAD ===\n"));
-            List<String> multiOutput = ThreadExecutor.processShapes(shapes);
-            
-            multiOutput.forEach(this::updateText);
+
+            // =========================
+            // SINGLE THREAD
+            // =========================
+            long startSingle = System.currentTimeMillis();
+
+            List<String> singleOutput =
+                    ThreadExecutorSingle.processShapes(shapes);
+
+            long endSingle = System.currentTimeMillis();
+
+            SwingUtilities.invokeLater(() -> {
+
+                for (String s : singleOutput) {
+                    singleArea.append(s);
+                }
+
+                singleRuntime.setText(
+                        "Runtime Single Thread : "
+                        + (endSingle - startSingle)
+                        + " ms"
+                );
+            });
+
+            // =========================
+            // MULTI THREAD
+            // =========================
+            long startMulti = System.currentTimeMillis();
+
+            List<String> multiOutput =
+                    ThreadExecutor.processShapes(shapes);
+
+            long endMulti = System.currentTimeMillis();
+
+            SwingUtilities.invokeLater(() -> {
+
+                for (String s : multiOutput) {
+                    multiArea.append(s);
+                }
+
+                multiRuntime.setText(
+                        "Runtime Multi Thread : "
+                        + (endMulti - startMulti)
+                        + " ms"
+                );
+            });
+
         }).start();
     }
 }
