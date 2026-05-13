@@ -26,7 +26,7 @@ public class PersegiPage extends JPanel {
 
     public PersegiPage() {
         setLayout(new BorderLayout(10, 10));
-        setPreferredSize(new Dimension(410, 300));
+        setPreferredSize(new Dimension(720, 480));
         
         JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         inputPanel.add(new JLabel("Side:"));
