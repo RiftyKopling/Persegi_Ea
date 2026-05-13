@@ -1,7 +1,6 @@
 package mainapp.projek_pbo;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import mainapp.Handling.InvalidDimensionException;
 
 public class Persegi extends BangunDatar {
     // Luas and Keliling shouldn't be an variable in object sudden change
@@ -12,16 +11,16 @@ public class Persegi extends BangunDatar {
 
     // Overloading Implementation
     public Persegi() {
-        setSisi(0);
+        this.sisi = 1;
     }
 
-    public Persegi(double sisi) {
+    public Persegi(double sisi) throws InvalidDimensionException {
         setSisi(sisi);
     }
 
-    public void setSisi(double sisi) {
-        if (sisi < 0) {
-            throw new IllegalArgumentException("Sisi harus > 0");
+    public void setSisi(double sisi) throws InvalidDimensionException {
+        if (sisi <= 0) {
+            throw new InvalidDimensionException("Sisi harus lebih dari 0");
         }
         this.sisi = sisi;
     }
@@ -72,8 +71,8 @@ public class Persegi extends BangunDatar {
     public String infoSingleLine() {
         return String.format(
             "Nama Bangun: %s, " +
-            "Luas: %.2f cm³, " +
-            "Keliling: %.2f cm², " +
+            "Luas: %.2f cm², " +
+            "Keliling: %.2f cm, " +
             this.getNamaBangun(),
             this.hitungLuas(),
             this.hitungKeliling()

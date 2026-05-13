@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+import mainapp.Handling.InvalidDimensionException;
 import mainapp.threading.*;
 import mainapp.projek_pbo.*;
 
@@ -46,9 +47,24 @@ public class MultiThreadPage extends JPanel {
         // generate random object
         for (int i = 0; i < 50; i++) {
             if (i % 2 == 0) {
-                shapes.add(new BujurSangkar(rand.nextInt(10) + 1, rand.nextInt(10) + 1));
+                try {
+                    shapes.add(new BujurSangkar(
+                        rand.nextInt(10) + 1,
+                        rand.nextInt(10) + 1
+                    ));
+                } catch (InvalidDimensionException ex) {
+                    // fallback aman (harusnya tidak kejadian karena random >=1)
+                    shapes.add(new BujurSangkar());
+                }
             } else {
-                shapes.add(new LimasPersegi(rand.nextInt(10) + 1, rand.nextInt(5) + 1));
+                try {
+                    shapes.add(new LimasPersegi(
+                        rand.nextInt(10) + 1,
+                        rand.nextInt(5) + 1
+                    ));
+                } catch (InvalidDimensionException ex) {
+                    shapes.add(new LimasPersegi());
+                }
             }
         }
 

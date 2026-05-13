@@ -1,7 +1,6 @@
 package mainapp.projek_pbo;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import mainapp.Handling.InvalidDimensionException;
 
 public class LimasPersegi extends BangunRuang {
     private double tinggi;
@@ -9,14 +8,15 @@ public class LimasPersegi extends BangunRuang {
     // as the base
     private Persegi base;
 
-    public LimasPersegi(){
-        this.base = new Persegi(0);
-        this.tinggi = 0;
+    public LimasPersegi() {
+        this.base = new Persegi();
+        this.tinggi = 1;
     }
     
-    public LimasPersegi(double sisi, double tinggi) {
-        this.base = new Persegi(sisi);
-        this.tinggi = tinggi;
+    public LimasPersegi(double sisi, double tinggi) throws InvalidDimensionException {
+        this.base = new Persegi();
+        this.base.setSisi(sisi);
+        this.setTinggi(tinggi);
     }
 
     public double hitungVolume() {
@@ -46,11 +46,17 @@ public class LimasPersegi extends BangunRuang {
         return luasPermukaan;
     }
     
-    public void setTinggi(double tinggi) {
+    public void setTinggi(double tinggi) throws InvalidDimensionException {
+        if (tinggi <= 0) {
+            throw new InvalidDimensionException("Tinggi harus lebih dari 0");
+        }
         this.tinggi = tinggi;
     }
     
-    public void setSisi(double sisi) {
+    public void setSisi(double sisi) throws InvalidDimensionException {
+       if (sisi <= 0) {
+            throw new InvalidDimensionException("Sisi harus lebih dari 0");
+        }
         this.base.setSisi(sisi);
     }
 

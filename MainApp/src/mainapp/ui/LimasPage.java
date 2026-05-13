@@ -14,9 +14,11 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import mainapp.Handling.InvalidDimensionException;
 import mainapp.projek_pbo.LimasPersegi;
 
 /**
@@ -24,7 +26,7 @@ import mainapp.projek_pbo.LimasPersegi;
  * @author morxidia
  */
 public class LimasPage extends JPanel{
-    private LimasPersegi geometryObject= new LimasPersegi();
+    private LimasPersegi geometryObject;
     
     // input text object
     private JTextField inputSide = new JTextField(10);
@@ -39,6 +41,8 @@ public class LimasPage extends JPanel{
     private JTextArea errorTextArea = new JTextArea(5, 20);
 
     public LimasPage() {
+        geometryObject = new LimasPersegi();
+        
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(410, 300));
         
@@ -101,12 +105,11 @@ public class LimasPage extends JPanel{
                 outputPerimeter.setText(this.formatValue(geometryObject.hitungLuasPermukaan()));
             }
             // Handle error for parse error String to Double
-            catch(NumberFormatException ex){
-                errorTextArea.setText("Error: Invalid Number input please enter valid number");
+            catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Input harus angka valid");
             }
-            // other error handle by parent Exception object
-            catch(Exception ex){
-                errorTextArea.setText("Error: " + ex.getMessage());
+            catch (InvalidDimensionException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         });
     }
@@ -115,7 +118,7 @@ public class LimasPage extends JPanel{
         return String.format("%.2f", input);
     }
     
-    private void handleInput(String side, String height){
+    private void handleInput(String side, String height) throws InvalidDimensionException {
         double sideVal = Double.parseDouble(side);
         double heightVal = Double.parseDouble(height);
         geometryObject.setSisi(sideVal);

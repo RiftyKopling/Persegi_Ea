@@ -5,13 +5,14 @@
 package mainapp.ui;
 import javax.swing.*;
 import java.awt.*;
+import mainapp.Handling.InvalidDimensionException;
 import mainapp.projek_pbo.*;
 /**
  *
  * @author morxidia
  */
 public class PersegiPage extends JPanel {
-    private Persegi geometryObject= new Persegi();
+    private Persegi geometryObject;
     
     // input text object
     private JTextField inputSide = new JTextField(10);
@@ -25,6 +26,8 @@ public class PersegiPage extends JPanel {
     private JTextArea errorTextArea = new JTextArea(5, 20);
 
     public PersegiPage() {
+        geometryObject = new Persegi();
+        
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(410, 300));
         
@@ -84,17 +87,16 @@ public class PersegiPage extends JPanel {
                 outputPerimeter.setText(String.valueOf(geometryObject.hitungKeliling()) + " cm");
             }
             // Handle error for parse error String to Double
-            catch(NumberFormatException ex){
-                errorTextArea.setText("Error: Invalid Number input please enter valid number");
+            catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Input harus angka valid");
             }
-            // other error handle by parent Exception object
-            catch(Exception ex){
-                errorTextArea.setText("Error: " + ex.getMessage());
+            catch (InvalidDimensionException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         });
     }
     
-    private void handleInput(String input){
+    private void handleInput(String input) throws InvalidDimensionException {
         double val = Double.parseDouble(input);
         geometryObject.setSisi(val);
     }
