@@ -41,6 +41,9 @@ public class BujurSangkar extends BangunRuang {
     }
     
     public void setTinggi(double tinggi) {
+        if (tinggi < 0) {
+            throw new IllegalArgumentException("Sisi harus > 0");
+        }
         this.tinggi = tinggi;
     }
     
