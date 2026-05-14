@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="mainapp">
+  <ClassDiagramComponents>
+    <Class name="InvalidDimensionException" package="mainapp.Handling" visibility="public" xPosition="1119.0" yPosition="1766.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="MainApp" package="mainapp" visibility="public" xPosition="220.0" yPosition="1757.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="createAndShowGUI" returnType="void" visibility="private" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="BangunDatar" package="mainapp.projek_pbo" visibility="public" isAbstract="true" xPosition="449.0" yPosition="510.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="hitungLuas" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="BangunRuang" package="mainapp.projek_pbo" visibility="public" isAbstract="true" xPosition="1015.0" yPosition="148.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="hitungVolume" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="hitungLuasPermukaan" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="BujurSangkar" package="mainapp.projek_pbo" visibility="public" xPosition="670.0" yPosition="861.0">
+      <Fields>
+        <Field name="tinggi" type="double" visibility="private"/>
+        <Field name="base" type="Persegi" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="sisi"/>
+          <Argument type="double" name="tinggi"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hitungVolume" returnType="double" visibility="public"/>
+        <Method name="hitungLuasPermukaan" returnType="double" visibility="public"/>
+        <Method name="hitungVolume" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+          <Argument type="double" name="tinggiBaru"/>
+        </Method>
+        <Method name="hitungLuasPermukaan" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+          <Argument type="double" name="tinggiBaru"/>
+        </Method>
+        <Method name="setTinggi" returnType="void" visibility="public">
+          <Argument type="double" name="tinggi"/>
+        </Method>
+        <Method name="setSisi" returnType="void" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="getTinggi" returnType="double" visibility="public"/>
+        <Method name="getNamaBangun" returnType="String" visibility="public"/>
+        <Method name="info" returnType="String" visibility="public"/>
+        <Method name="infoSingleLine" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LimasPersegi" package="mainapp.projek_pbo" visibility="public" xPosition="1119.0" yPosition="417.0">
+      <Fields>
+        <Field name="tinggi" type="double" visibility="private"/>
+        <Field name="base" type="Persegi" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="sisi"/>
+          <Argument type="double" name="tinggi"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hitungVolume" returnType="double" visibility="public"/>
+        <Method name="hitungLuasPermukaan" returnType="double" visibility="public"/>
+        <Method name="hitungVolume" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+          <Argument type="double" name="tinggiBaru"/>
+        </Method>
+        <Method name="hitungLuasPermukaan" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+          <Argument type="double" name="tinggiBaru"/>
+        </Method>
+        <Method name="setTinggi" returnType="void" visibility="public">
+          <Argument type="double" name="tinggi"/>
+        </Method>
+        <Method name="setSisi" returnType="void" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="getTinggi" returnType="double" visibility="public"/>
+        <Method name="getNamaBangun" returnType="String" visibility="public"/>
+        <Method name="info" returnType="String" visibility="public"/>
+        <Method name="infoSingleLine" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persegi" package="mainapp.projek_pbo" visibility="public" xPosition="220.0" yPosition="766.0">
+      <Fields>
+        <Field name="sisi" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setSisi" returnType="void" visibility="public">
+          <Argument type="double" name="sisi"/>
+        </Method>
+        <Method name="getSisi" returnType="double" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public"/>
+        <Method name="hitungKeliling" returnType="double" visibility="public"/>
+        <Method name="hitungLuas" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+        </Method>
+        <Method name="hitungKeliling" returnType="double" visibility="public">
+          <Argument type="double" name="sisiBaru"/>
+        </Method>
+        <Method name="getNamaBangun" returnType="String" visibility="public"/>
+        <Method name="info" returnType="String" visibility="public"/>
+        <Method name="infoSingleLine" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ThreadExecutor" package="mainapp.threading" visibility="public" xPosition="192.0" yPosition="82.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="processShapes" returnType="List" visibility="public" isStatic="true">
+          <Argument type="List&lt;BendaGeometri&gt;" name="shapes"/>
+        </Method>
+        <Method name="processShape" returnType="String" visibility="private" isStatic="true">
+          <Argument type="BendaGeometri" name="shape"/>
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ThreadExecutorSingle" package="mainapp.threading" visibility="public" xPosition="192.0" yPosition="254.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="processShapes" returnType="List" visibility="public" isStatic="true">
+          <Argument type="List&lt;BendaGeometri&gt;" name="shapes"/>
+        </Method>
+        <Method name="processShape" returnType="String" visibility="private" isStatic="true">
+          <Argument type="BendaGeometri" name="shape"/>
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BujurSangkarPage" package="mainapp.ui" visibility="public" xPosition="731.0" yPosition="1388.0">
+      <Fields>
+        <Field name="geometryObject" type="BujurSangkar" visibility="private"/>
+        <Field name="inputSide" type="JTextField" visibility="private"/>
+        <Field name="inputHeight" type="JTextField" visibility="private"/>
+        <Field name="btnCalculate" type="JButton" visibility="private"/>
+        <Field name="outputVolume" type="JTextField" visibility="private"/>
+        <Field name="outputSurfaceArea" type="JTextField" visibility="private"/>
+        <Field name="errorTextArea" type="JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="formatValue" returnType="String" visibility="private">
+          <Argument type="Double" name="input"/>
+        </Method>
+        <Method name="handleInput" returnType="void" visibility="private">
+          <Argument type="String" name="side"/>
+          <Argument type="String" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HomePanel" package="mainapp.ui" visibility="public" xPosition="496.0" yPosition="1728.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="makeTextPanel" returnType="JComponent" visibility="protected">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="createImageIcon" returnType="ImageIcon" visibility="protected" isStatic="true">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="createAndShowGUI" returnType="void" visibility="private" isStatic="true"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LimasPage" package="mainapp.ui" visibility="public" xPosition="1180.0" yPosition="1210.0">
+      <Fields>
+        <Field name="geometryObject" type="LimasPersegi" visibility="private"/>
+        <Field name="inputSide" type="JTextField" visibility="private"/>
+        <Field name="inputHeight" type="JTextField" visibility="private"/>
+        <Field name="btnCalculate" type="JButton" visibility="private"/>
+        <Field name="outputArea" type="JTextField" visibility="private"/>
+        <Field name="outputPerimeter" type="JTextField" visibility="private"/>
+        <Field name="errorTextArea" type="JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="formatValue" returnType="String" visibility="private">
+          <Argument type="Double" name="input"/>
+        </Method>
+        <Method name="handleInput" returnType="void" visibility="private">
+          <Argument type="String" name="side"/>
+          <Argument type="String" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MultiThreadPage" package="mainapp.ui" visibility="public" xPosition="853.0" yPosition="1709.0">
+      <Fields>
+        <Field name="singleArea" type="JTextArea" visibility="private"/>
+        <Field name="multiArea" type="JTextArea" visibility="private"/>
+        <Field name="singleRuntime" type="JLabel" visibility="private"/>
+        <Field name="multiRuntime" type="JLabel" visibility="private"/>
+        <Field name="button" type="JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="handleMultiThread" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersegiPage" package="mainapp.ui" visibility="public" xPosition="242.0" yPosition="1281.0">
+      <Fields>
+        <Field name="geometryObject" type="Persegi" visibility="private"/>
+        <Field name="inputSide" type="JTextField" visibility="private"/>
+        <Field name="btnCalculate" type="JButton" visibility="private"/>
+        <Field name="outputArea" type="JTextField" visibility="private"/>
+        <Field name="outputPerimeter" type="JTextField" visibility="private"/>
+        <Field name="errorTextArea" type="JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="handleInput" returnType="void" visibility="private">
+          <Argument type="String" name="input"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="BendaGeometri" package="mainapp.projek_pbo" visibility="public" xPosition="670.0" yPosition="157.0">
+      <Methods>
+        <Method name="getNamaBangun" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="info" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="infoSingleLine" returnType="String" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="mainapp.projek_pbo.Persegi" target="mainapp.projek_pbo.BangunDatar"/>
+    <HasRelation name="geometryObject" source="mainapp.ui.LimasPage" target="mainapp.projek_pbo.LimasPersegi" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="mainapp.projek_pbo.BujurSangkar" target="mainapp.projek_pbo.BangunRuang"/>
+    <UseRelation source="mainapp.threading.ThreadExecutorSingle" target="mainapp.projek_pbo.BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="base" source="mainapp.projek_pbo.LimasPersegi" target="mainapp.projek_pbo.Persegi" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="mainapp.projek_pbo.BangunRuang" target="mainapp.projek_pbo.BendaGeometri"/>
+    <IsRelation name="is" source="mainapp.projek_pbo.LimasPersegi" target="mainapp.projek_pbo.BangunRuang"/>
+    <HasRelation name="geometryObject" source="mainapp.ui.PersegiPage" target="mainapp.projek_pbo.Persegi" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="geometryObject" source="mainapp.ui.BujurSangkarPage" target="mainapp.projek_pbo.BujurSangkar" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="base" source="mainapp.projek_pbo.BujurSangkar" target="mainapp.projek_pbo.Persegi" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mainapp.threading.ThreadExecutor" target="mainapp.projek_pbo.BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="mainapp.projek_pbo.BangunDatar" target="mainapp.projek_pbo.BendaGeometri"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
