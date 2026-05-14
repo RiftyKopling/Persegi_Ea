@@ -41,7 +41,7 @@ public class ThreadExecutor {
         String threadName = Thread.currentThread().getName();
 
         try {
-            Thread.sleep((int)(Math.random()*100)); // bikin acak
+//            Thread.sleep((int)(Math.random()*100)); // bikin acak
 
             BangunRuang bd = (BangunRuang) shape;
 

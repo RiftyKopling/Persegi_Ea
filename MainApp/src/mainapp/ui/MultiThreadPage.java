@@ -81,7 +81,7 @@ public class MultiThreadPage extends JPanel {
         Random rand = new Random();
 
         // generate random object
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1000000; i++) {
 
             if (i % 2 == 0) {
                 try {
