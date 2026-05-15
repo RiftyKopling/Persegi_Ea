@@ -12,20 +12,14 @@ public class MainApp {
     }
 
     private static void createAndShowGUI() {
-        // 1. Create the window
         JFrame frame = new JFrame("Geometry Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // 2. Add your HomePanel to the frame
-        // HomePanel is a JPanel, so it fits right in
         HomePanel mainContent = new HomePanel();
         frame.add(mainContent);
 
-        // 3. Size and display
         frame.pack(); 
-        frame.setLocationRelativeTo(null); // Centers the window on screen
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
     }
 }
-
-// ini branch bukan main 

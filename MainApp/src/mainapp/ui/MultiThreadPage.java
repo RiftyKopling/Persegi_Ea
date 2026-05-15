@@ -1,8 +1,4 @@
 package mainapp.ui;
-/**
- * @author morxidia
- * this page show the main default branch output as text in java swing UI
- */
 
 import javax.swing.JPanel;
 import javax.swing.*;
@@ -28,13 +24,11 @@ public class MultiThreadPage extends JPanel {
 
         setLayout(new BorderLayout());
 
-        // ===== TOP PANEL =====
         JPanel topPanel = new JPanel();
         topPanel.add(button);
 
         add(topPanel, BorderLayout.NORTH);
 
-        // ===== TEXT AREA =====
         singleArea.setEditable(false);
         multiArea.setEditable(false);
 
@@ -60,7 +54,6 @@ public class MultiThreadPage extends JPanel {
 
         add(centerPanel, BorderLayout.CENTER);
 
-        // ===== BOTTOM PANEL =====
         JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
 
         bottomPanel.add(singleRuntime);
@@ -68,7 +61,6 @@ public class MultiThreadPage extends JPanel {
 
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // ===== BUTTON ACTION =====
         button.addActionListener(e -> handleMultiThread());
     }
 
@@ -80,7 +72,6 @@ public class MultiThreadPage extends JPanel {
         List<BendaGeometri> shapes = new ArrayList<>();
         Random rand = new Random();
 
-        // generate random object
         for (int i = 0; i < 1000000; i++) {
 
             if (i % 2 == 0) {
@@ -106,10 +97,6 @@ public class MultiThreadPage extends JPanel {
         }
 
         new Thread(() -> {
-
-            // =========================
-            // SINGLE THREAD
-            // =========================
             long startSingle = System.currentTimeMillis();
 
             List<String> singleOutput
@@ -130,9 +117,6 @@ public class MultiThreadPage extends JPanel {
                 );
             });
 
-            // =========================
-            // MULTI THREAD
-            // =========================
             long startMulti = System.currentTimeMillis();
 
             List<String> multiOutput

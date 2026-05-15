@@ -1,13 +1,9 @@
 package mainapp.projek_pbo;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import mainapp.Handling.InvalidDimensionException;
 
 public class BujurSangkar extends BangunRuang {
     private double tinggi;
-    // 3D object shouldn't extend from 2d object, only has the object of 2d
-    // as the base
     private Persegi base;
 
     public BujurSangkar() {

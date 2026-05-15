@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainapp.ui;
 
 import java.awt.BorderLayout;
@@ -21,23 +17,16 @@ import javax.swing.JTextField;
 import mainapp.Handling.InvalidDimensionException;
 import mainapp.projek_pbo.BujurSangkar;
 
-/**
- *
- * @author morxidia
- */
 public class BujurSangkarPage extends JPanel {
     private BujurSangkar geometryObject;
     
-    // input text object
     private JTextField inputSide = new JTextField(10);
     private JTextField inputHeight = new JTextField(10);
     private JButton btnCalculate = new JButton("Calculate");
-    
-    // output text object
+
     private JTextField outputVolume = new JTextField(20);
     private JTextField outputSurfaceArea = new JTextField(20);
     
-    // Error Textarea;
     private JTextArea errorTextArea = new JTextArea(5, 20);
 
     public BujurSangkarPage() {
@@ -53,13 +42,10 @@ public class BujurSangkarPage extends JPanel {
         inputPanel.add(new JLabel("Height:"));
         inputPanel.add(inputHeight);
         
-        // to set the spacer and "calculate" button 
         inputPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         inputPanel.add(btnCalculate);
         add(inputPanel, BorderLayout.NORTH);
         
-        // Result Section
-        // header use box layout
         JPanel resultPanel = new JPanel();
         resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.PAGE_AXIS));
         JLabel header = new JLabel("Result");
@@ -68,7 +54,6 @@ public class BujurSangkarPage extends JPanel {
         resultPanel.add(header);
         add(resultPanel, BorderLayout.CENTER);
         
-        // ouput view&behaviour setting
         outputSurfaceArea.setEditable(false); 
         outputSurfaceArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         outputSurfaceArea.setBackground(Color.WHITE);
@@ -76,7 +61,6 @@ public class BujurSangkarPage extends JPanel {
         outputVolume.setFont(new Font("Monospaced", Font.PLAIN, 14));
         outputVolume.setBackground(Color.WHITE);
         
-        // adding result section as flow layout rather than box layout
         JPanel resultRow = new JPanel();
         resultRow.setLayout(new FlowLayout(FlowLayout.CENTER));
         resultRow.add(new JLabel("Volume: "));
@@ -87,15 +71,12 @@ public class BujurSangkarPage extends JPanel {
 
         resultPanel.add(resultRow);
         
-        
-        // Error Text panel
         errorTextArea.setEditable(false);
         errorTextArea.setForeground(Color.RED); 
         errorTextArea.setBackground(getBackground());
         add(errorTextArea, BorderLayout.SOUTH);
         
         btnCalculate.addActionListener(e -> {
-            // calculate button eventlistener
             errorTextArea.setText(""); 
             outputVolume.setText("");
             outputSurfaceArea.setText("");
@@ -104,7 +85,6 @@ public class BujurSangkarPage extends JPanel {
                 outputVolume.setText(this.formatValue(geometryObject.hitungVolume()));
                 outputSurfaceArea.setText(this.formatValue(geometryObject.hitungLuasPermukaan()));
             }
-            // Handle error for parse error String to Double
             catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Input harus angka valid");
             }

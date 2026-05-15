@@ -4,8 +4,6 @@ import mainapp.Handling.InvalidDimensionException;
 
 public class LimasPersegi extends BangunRuang {
     private double tinggi;
-    // 3D object shouldn't extend from 2d object, only has the object of 2d
-    // as the base
     private Persegi base;
 
     public LimasPersegi() {

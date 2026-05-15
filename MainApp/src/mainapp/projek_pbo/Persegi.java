@@ -9,7 +9,6 @@ public class Persegi extends BangunDatar {
     // only accessible by setter and getter
     private double sisi;
 
-    // Overloading Implementation
     public Persegi() {
         this.sisi = 1;
     }
@@ -46,9 +45,6 @@ public class Persegi extends BangunDatar {
     public double hitungKeliling(double sisiBaru) {
         return 4 * sisiBaru;
     }
-
-    // Input Output shouldn't be handle by geometri class and should handle by
-    // other class that declare the class object
     
     @Override
     public String getNamaBangun() {
