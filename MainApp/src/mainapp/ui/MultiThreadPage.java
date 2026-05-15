@@ -81,7 +81,6 @@ public class MultiThreadPage extends JPanel {
                             rand.nextInt(10) + 1
                     ));
                 } catch (InvalidDimensionException ex) {
-                    // fallback aman (harusnya tidak kejadian karena random >=1)
                     shapes.add(new BujurSangkar());
                 }
             } else {
