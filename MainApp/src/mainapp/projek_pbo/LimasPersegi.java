@@ -46,6 +46,14 @@ public class LimasPersegi extends BangunRuang {
         return luasPermukaan;
     }
     
+    public double hitungLuasAlas(){
+        return this.base.hitungLuas();
+    }
+    
+    public double hitungLuasAlas(double sisiBaru) {
+        return this.base.hitungLuas(sisiBaru);
+    }
+    
     public void setTinggi(double tinggi) {
         this.tinggi = tinggi;
     }

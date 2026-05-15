@@ -40,6 +40,14 @@ public class BujurSangkar extends BangunRuang {
         return luasPermukaan;
     }
     
+    public double hitungLuasAlas(){
+        return this.base.hitungLuas();
+    }
+    
+    public double hitungLuasAlas(double sisiBaru) {
+        return this.base.hitungLuas(sisiBaru);
+    }
+    
     public void setTinggi(double tinggi) {
         if (tinggi < 0) {
             throw new IllegalArgumentException("Sisi harus > 0");
