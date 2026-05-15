@@ -105,13 +105,6 @@
         <Method name="infoSingleLine" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Interface name="BendaGeometri" package="" visibility="public" xPosition="394.0" yPosition="33.0">
-      <Methods>
-        <Method name="getNamaBangun" returnType="String" visibility="public"/>
-        <Method name="info" returnType="String" visibility="public"/>
-        <Method name="infoSingleLine" returnType="String" visibility="public"/>
-      </Methods>
-    </Interface>
     <Class name="BangunRuang" package="" visibility="public" isAbstract="true" xPosition="545.0" yPosition="235.0">
       <Fields/>
       <Constructors/>
@@ -120,7 +113,7 @@
         <Method name="hitungLuasPermukaan" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="ThreadExecutor" package="" visibility="public" xPosition="1071.0" yPosition="191.0">
+    <Class name="ThreadExecutor" package="" visibility="public" xPosition="1636.0" yPosition="220.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -133,7 +126,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ThreadExecutorSingle" package="" visibility="public" xPosition="1071.0" yPosition="41.0">
+    <Class name="ThreadExecutorSingle" package="" visibility="public" xPosition="1259.0" yPosition="37.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -146,7 +139,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="MainApp" package="" visibility="public" xPosition="1071.0" yPosition="1360.0">
+    <Class name="MainApp" package="" visibility="public" xPosition="525.0" yPosition="1764.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -156,7 +149,7 @@
         <Method name="createAndShowGUI" returnType="void" visibility="public" isStatic="true"/>
       </Methods>
     </Class>
-    <Class name="MultiThreadPage" package="" visibility="public" xPosition="517.0" yPosition="1720.0">
+    <Class name="MultiThreadPage" package="" visibility="public" xPosition="1470.0" yPosition="914.0">
       <Fields>
         <Field name="singleArea" type="JTextArea" visibility="private"/>
         <Field name="multiArea" type="JTextArea" visibility="private"/>
@@ -170,7 +163,7 @@
         <Method name="handleMultiThread" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="HomePanel" package="" visibility="public" xPosition="489.0" yPosition="1498.0">
+    <Class name="HomePanel" package="" visibility="public" xPosition="517.0" yPosition="1481.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -204,7 +197,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="BujurSangkarPage" package="" visibility="public" xPosition="503.0" yPosition="1142.0">
+    <Class name="BujurSangkarPage" package="" visibility="public" xPosition="429.0" yPosition="1053.0">
       <Fields>
         <Field name="geometryObject" type="BujurSangkar" visibility="private"/>
         <Field name="inputSide" type="JTextField" visibility="private"/>
@@ -226,7 +219,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="LimasPage" package="" visibility="public" xPosition="1184.0" yPosition="788.0">
+    <Class name="LimasPage" package="" visibility="public" xPosition="782.0" yPosition="1053.0">
       <Fields>
         <Field name="geometryObject" type="LimasPersegi" visibility="private"/>
         <Field name="inputSide" type="JTextField" visibility="private"/>
@@ -248,7 +241,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="InvalidDimensionException" package="" visibility="public" xPosition="1426.0" yPosition="1554.0">
+    <Class name="InvalidDimensionException" package="" visibility="public" xPosition="1324.0" yPosition="1460.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -257,23 +250,33 @@
         </Method>
       </Methods>
     </Class>
+    <Interface name="BendaGeometri" package="" visibility="public" xPosition="394.0" yPosition="33.0">
+      <Methods>
+        <Method name="getNamaBangun" returnType="String" visibility="public"/>
+        <Method name="info" returnType="String" visibility="public"/>
+        <Method name="infoSingleLine" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="panel3" source="HomePanel" target="BujurSangkarPage" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="BujurSangkar" target="BangunRuang"/>
-    <HasRelation name="geometryObject" source="PersegiPage" target="Persegi" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <UseRelation name="shapes" source="ThreadExecutorSingle" target="BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="Persegi" target="BangunDatar"/>
-    <HasRelation name="panel4" source="HomePanel" target="MultiThreadPage" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <UseRelation name="shapes" source="ThreadExecutor" target="BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="panel1" source="HomePanel" target="PersegiPage" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="BangunDatar" target="BendaGeometri"/>
-    <HasRelation name="geometryObject" source="BujurSangkarPage" target="BujurSangkar" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="base" source="LimasPersegi" target="Persegi" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="base" source="BujurSangkar" target="Persegi" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="shapes" source="ThreadExecutorSingle" target="BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="panel1" source="HomePanel" target="PersegiPage" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="panel3" source="HomePanel" target="BujurSangkarPage" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="multiOutput" source="MultiThreadPage" target="ThreadExecutor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="shapes" source="ThreadExecutor" target="BendaGeometri" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="LimasPersegi" target="BangunRuang"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="BangunRuang" target="BendaGeometri"/>
-    <HasRelation name="panel2" source="HomePanel" target="LimasPage" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="BangunDatar" target="BendaGeometri"/>
+    <IsRelation name="is" source="Persegi" target="BangunDatar"/>
+    <HasRelation name="geometryObject" source="PersegiPage" target="Persegi" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="geometryObject" source="BujurSangkarPage" target="BujurSangkar" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="singleOutput" source="MultiThreadPage" target="ThreadExecutorSingle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="BujurSangkar" target="BangunRuang"/>
+    <HasRelation name="base" source="BujurSangkar" target="Persegi" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="panel2" source="HomePanel" target="LimasPage" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="geometryObject" source="LimasPage" target="LimasPersegi" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="BangunRuang" target="BendaGeometri"/>
+    <HasRelation name="panel4" source="HomePanel" target="MultiThreadPage" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="mainContent" source="MainApp" target="HomePanel" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
